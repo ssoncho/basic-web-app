@@ -14,7 +14,7 @@ function Home() {
 
   const getStudents = () => {
     axios
-      .get(config.apiUrl)
+      .get(`${config.apiUrl}/students`)
       .then((response) => setStudents(response.data.result));
   };
 

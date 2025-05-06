@@ -9,7 +9,7 @@ function AppRemoveStudent(props) {
     setVisible(!visible);
   };
   const deleteStudent = () => {
-    axios.delete(config.apiUrl + props.id).then(() => {
+    axios.delete(`${config.apiUrl}/students/${props.id}`).then(() => {
       props.resetState();
       toggle();
     });

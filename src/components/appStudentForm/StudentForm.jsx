@@ -29,7 +29,7 @@ function StudentForm(props) {
     e.preventDefault();
     // eslint-disable-next-line
     const result = await axios
-      .put(config.apiUrl + student.id, student, {
+      .put(`${config.apiUrl}/students/${student.id}`, student, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then(() => {
@@ -49,7 +49,7 @@ function StudentForm(props) {
     };
     // eslint-disable-next-line
     const result = await axios
-      .post(config.apiUrl, data, {
+      .post(`${config.apiUrl}/students`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then(() => {

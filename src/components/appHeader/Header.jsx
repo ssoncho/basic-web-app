@@ -1,4 +1,20 @@
+import { useState, useEffect } from "react";
+import config from "../../config";
+import axios from "axios";
+
 function Header() {
+  const [machineInfo, setMachineInfo] = useState("");
+
+  useEffect(() => {
+    getMachineInfo();
+  }, []);
+
+  const getMachineInfo = () => {
+    axios
+      .get(`${config.apiUrl}/info`)
+      .then((response) => setMachineInfo(response.data.result));
+  };
+
   return (
     <div className="text-center">
       <img
@@ -10,6 +26,7 @@ function Header() {
       />
       <hr />
       <h1>App for project on React + Asp.Net</h1>
+      <h2>Launched on {machineInfo}</h2>
     </div>
   );
 }
